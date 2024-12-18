@@ -1,0 +1,40 @@
+openapi: 3.1.0
+info:
+    version: 1.0.0
+    title: Steam API
+    termsOfService: https://example.com/terms/
+    contact:
+        name: Наша поддержка
+        email: steam@support.com
+        url: https://help.steampowered.com/ru/
+    license:
+        name: Apache 2.0
+        url: http://www.apache.org/licenses/LICENSE-2.0.html
+    x-logo:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1024px-Steam_icon_logo.svg.png"
+        altText: Стим Лого
+    description: >
+        Данная страница представляет собой описание REST API сервиса Steam
+tags:
+    - name: Echo
+      description: "Example echo operations."
+    - name: User
+      description: "Example actions on user accounts."
+    - name: Admin
+      description: "Example operations reserved for administrators."
+    - name: Info
+      description: "Example operations for retrieving information."
+    - name: Tag
+      description: "This is a tag description."
+x-tagGroups:
+    - name: General
+      tags:
+          - User
+          - Info
+          - Echo
+    - name: Administration
+      tags:
+          - Admin
+paths:
+    "/users/{username}":
+        $ref: "./paths/users/{username}/get.yaml"

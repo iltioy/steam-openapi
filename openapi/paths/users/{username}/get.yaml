@@ -1,0 +1,37 @@
+get:
+    tags:
+        - User
+    summary: Получение информации о пользователе по имени
+    description: ""
+    operationId: getUserByUsername
+    parameters:
+        - name: username
+          in: query
+          description: "Имя пользователя"
+          required: true
+          style: form
+          explode: false
+          schema:
+              type: string
+    responses:
+        "200":
+            description: Successful response example
+            content:
+                application/json:
+                    schema:
+                        type: array
+
+                application/xml:
+                    schema:
+                        type: array
+
+                text/plain:
+                    examples:
+                        response:
+                            value: Success!
+        "400":
+            description: Invalid status value was provided in the request
+    security:
+        - main_auth:
+              - "read:users"
+              - "write:users"
