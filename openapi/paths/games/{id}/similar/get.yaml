@@ -1,9 +1,9 @@
 get:
     tags:
         - Game
-    summary: Получение игры
-    description: Получение информации об игре
-    operationId: getGameById
+    summary: Получение похожих
+    description: Получение списка похожих игр
+    operationId: getSimilarGamesById
     parameters:
         - name: id
           in: path
@@ -19,7 +19,9 @@ get:
             content:
                 application/json:
                     schema:
-                        $ref: ../../../components/schemas/Game/Game.yaml
+                        type: array
+                        items:
+                            $ref: ../../../../components/schemas/Game/Game.yaml
         "404":
             description: Игра не найдена
     security:

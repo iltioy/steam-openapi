@@ -1,0 +1,24 @@
+type: object
+required:
+    - user
+    - game
+properties:
+    user:
+        description: Сделавший скриншот пользователь
+        $ref: ../User.yaml
+    game:
+        description: Игра, в которой был сделан скриншот
+        $ref: ../../Game/Game.yaml
+    url:
+        type: string
+        description: url картинки
+        example: https://steamuserimages-a.akamaihd.net/ugc/2018221770514490290/CDA99BACAF885CA8647FCBB73A59DA8D913700FD/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false
+    likesCount:
+        type: integer
+        description: Количество лайков
+        example: 2
+    comments:
+        description: Комментарии к скриншоту
+        type: array
+        items:
+            type: string

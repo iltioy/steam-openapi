@@ -6,7 +6,7 @@ required:
 properties:
     user:
         description: Пользователь, оставивший комментарий
-        $ref: ../User.yaml
+        $ref: ./User/User.yaml
     text:
         type: string
         example: Team Spirit is going to win the Major

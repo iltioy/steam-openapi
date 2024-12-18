@@ -1,9 +1,9 @@
 get:
     tags:
         - User
-    summary: Получение по username
+    summary: Получение инвентаря
     description: ""
-    operationId: getUserByUsername
+    operationId: getUserInventoryUsername
     parameters:
         - name: username
           in: path
@@ -21,7 +21,7 @@ get:
                     schema:
                         type: array
                         items:
-                            $ref: "../../../components/schemas/User/User.yaml"
+                            $ref: ../../../../components/schemas/User/Games/Inventory.yaml
         "404":
             description: Пользователь не найден
     security:

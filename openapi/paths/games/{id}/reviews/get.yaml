@@ -1,9 +1,9 @@
 get:
     tags:
         - Game
-    summary: Получение игры
-    description: Получение информации об игре
-    operationId: getGameById
+    summary: Получение ревью игры
+    description: Получение ревью игры
+    operationId: getGameReviewsById
     parameters:
         - name: id
           in: path
@@ -15,11 +15,14 @@ get:
               type: string
     responses:
         "200":
-            description: Успешное получение игры
+            description: Успешное получение ревью игры
             content:
                 application/json:
                     schema:
-                        $ref: ../../../components/schemas/Game/Game.yaml
+                        type: array
+                        items:
+                            $ref: ../../../../components/schemas/Game/Review.yaml
+
         "404":
             description: Игра не найдена
     security:

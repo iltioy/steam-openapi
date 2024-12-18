@@ -7,7 +7,7 @@ required:
     - publicationDate
 properties:
     user:
-        $ref: ../User.yaml
+        $ref: ../User/User.yaml
     isRecommended:
         default: Флаг, показывающий, рекомендует ли пользователь данный товар
         type: boolean
@@ -44,4 +44,4 @@ properties:
         type: array
         description: Комментарии к ревью
         items:
-            $ref: Comment.yaml
+            $ref: ../Comment.yaml

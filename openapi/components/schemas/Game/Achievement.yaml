@@ -1,0 +1,17 @@
+type: object
+required:
+    - name
+    - imageUrl
+properties:
+    name:
+        type: string
+        description: Название ачивки
+        example: Промочить ноги
+    caption:
+        description: Описание ачивки
+        type: string
+        example: Нырнуть впервые
+    imageUrl:
+        type: string
+        description: Ссылка на карнитку ачивки
+        example: https://cdn.fastly.steamstatic.com/steamcommunity/public/images/apps/264710/89b61cdeb0e1b6d22532245ce394f00d0a4277e1.jpg

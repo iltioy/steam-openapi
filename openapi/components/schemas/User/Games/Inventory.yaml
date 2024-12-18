@@ -1,0 +1,21 @@
+type: object
+required:
+    - inventory
+properties:
+    inventory:
+        type: array
+        description: Инвентарь пользователя
+        required:
+            - game
+            - items
+        items:
+            type: object
+            properties:
+                game:
+                    $ref: ../../Game/Game.yaml
+                    description: Игра
+                items:
+                    type: array
+                    description: Предметы из игры
+                    items:
+                        $ref: ../../Market/Item.yaml

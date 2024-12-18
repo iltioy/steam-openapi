@@ -62,6 +62,11 @@ properties:
         type: array
         items:
             type: string
+    achievements:
+        type: array
+        description: Игровые ачивки
+        items:
+            $ref: Achievement.yaml
     publicationDate:
         description: Дата выхода
         type: string
@@ -71,11 +76,6 @@ properties:
         description: Ссылки на медиа
         items:
             $ref: ../Media.yaml
-    annoucements:
-        type: array
-        description: Объявения
-        items:
-            $ref: Annoucement.yaml
     systemRequirements:
         type: object
         description: Системные требования
@@ -105,8 +105,3 @@ properties:
         type: array
         description: Поддерживаемые языки
         $ref: LanguageSupport.yaml
-    reviews:
-        type: array
-        description: Ревью пользователей
-        items:
-            $ref: Review.yaml

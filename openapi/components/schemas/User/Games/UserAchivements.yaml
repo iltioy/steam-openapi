@@ -1,0 +1,12 @@
+type: object
+required:
+    - achievement
+    - dateEarned
+properties:
+    achievement:
+        description: Ачивка
+        $ref: ../../Game/Achievement.yaml
+    dateEarned:
+        description: Дата получения
+        type: string
+        example: 28 сен. 2023 г. в 0:30

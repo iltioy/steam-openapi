@@ -37,8 +37,20 @@ x-tagGroups:
 paths:
     "/games/{id}":
         $ref: "./paths/games/{id}/get.yaml"
+    "/games/{id}/reviews":
+        $ref: paths/games/{id}/reviews/get.yaml
+    "/games/{id}/announcements":
+        $ref: paths/games/{id}/announcements/get.yaml
+    "/games/{id}/similar":
+        $ref: paths/games/{id}/similar/get.yaml
     "/users/{username}":
         $ref: "./paths/users/{username}/get.yaml"
+    "/users/{username}/comments":
+        $ref: "./paths/users/{username}/comments/get.yaml"
+    "/users/{username}/inventory":
+        $ref: paths/users/{username}/inventory/get.yaml
+    "/users/{username}/screenshots":
+        $ref: paths/users/{username}/screenshots/get.yaml
 components:
     securitySchemes:
         main_auth:

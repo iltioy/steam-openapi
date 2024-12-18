@@ -1,0 +1,31 @@
+type: object
+required:
+    - timePlayed
+    - game
+properties:
+    game:
+        allOf:
+            - $ref: ../../Game/Game.yaml
+    timePlayed:
+        type: integer
+        description: Время в игре в часах
+        example: 3441
+    lastActive:
+        type: string
+        description: Дата последнего запуска
+        example: 15 дек
+    earnedAchivements:
+        type: array
+        description: поулченные ачивки
+        items:
+            $ref: UserAchivements.yaml
+    review:
+        description: Ревью на игру
+        type: array
+        items:
+            $ref: ../../Game/Review.yaml
+    screenshots:
+        description: Скриншоты в игре
+        type: array
+        items:
+            $ref: Screenshot.yaml

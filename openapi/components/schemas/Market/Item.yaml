@@ -1,0 +1,42 @@
+type: object
+
+properties:
+    game:
+        description: Игра
+        $ref: ../Game/Game.yaml
+    name:
+        type: string
+        description: Название предмета
+        example: Наклейка | Eternal Fire | Копенгаген-2024
+    caption:
+        type: string
+        description: Подпись под предметом
+        example: Чемпионат по CS2 PGL Major Copenhagen 2024 (памятный предмет)
+    description:
+        type: string
+        description: Описание предмета
+        example: Эту наклейку можно наклеить на любое ваше оружие, а также её можно скрести, чтобы она выглядела более поношенной.
+    slotsForSale:
+        type: object
+        description: Лоты на продажу
+        properties:
+            number:
+                type: integer
+                description: Количество
+                example: 14543
+            startPrice:
+                type: integer
+                description: Начальная Цена
+                example: 2,37
+    buyRequests:
+        type: object
+        description: Запросы на покупку
+        properties:
+            number:
+                type: integer
+                description: Количество
+                example: 471532
+            startPrice:
+                type: integer
+                description: Начальная Цена
+                example: 1,80

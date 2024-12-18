@@ -1,0 +1,55 @@
+type: object
+required:
+    - username
+    - actucalName
+properties:
+    username:
+        description: Постоянное имя профиля пользователя, указываемое при регистрации
+        type: string
+        minLength: 4
+        maxLength: 32
+        pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
+        example: mrcors
+    actucalName:
+        description: Изменяемое имя пользователя
+        type: string
+        pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
+        example: one trick pony
+    actualNameHistory:
+        description: История изменений имения пользователя
+        type: array
+        items:
+            type: string
+    location:
+        description: Страна и город пользователя
+        type: string
+        example: Atlanta, Georgia, United States
+    summary:
+        description: Описание профиля
+        type: string
+        example: ¿Qué horas son, mi corazón?
+    avatar:
+        description: Аватар пользователя
+        type: string
+        example: https://avatars.fastly.steamstatic.com/a959c4faa087933e6825f88fa10c3625897cf0a2_full.jpg
+    friends:
+        type: array
+        description: Друзья пользователя
+        items:
+            allOf:
+                - $ref: ./User.yaml
+    games:
+        type: array
+        description: Добавленные игры
+        items:
+            $ref: Games/UserGame.yaml
+    recentActivity:
+        type: array
+        description: 3 последние запущенные игры
+        items:
+            $ref: Games/UserGame.yaml
+    reviews:
+        type: array
+        description: Ревью игр
+        items:
+            $ref: ../Game/Review.yaml

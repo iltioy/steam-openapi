@@ -1,9 +1,9 @@
 get:
     tags:
         - User
-    summary: Получение по username
+    summary: Получение комментариев профиля
     description: ""
-    operationId: getUserByUsername
+    operationId: getUserProfileCommentsByUsername
     parameters:
         - name: username
           in: path
@@ -11,6 +11,11 @@ get:
           required: true
           style: form
           explode: false
+          schema:
+              type: string
+        - name: page
+          in: query
+          required: true
           schema:
               type: string
     responses:
@@ -21,7 +26,7 @@ get:
                     schema:
                         type: array
                         items:
-                            $ref: "../../../components/schemas/User/User.yaml"
+                            $ref: ../../../../components/schemas/Comment.yaml
         "404":
             description: Пользователь не найден
     security:
