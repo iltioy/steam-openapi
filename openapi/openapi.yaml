@@ -16,8 +16,8 @@ info:
     description: >
         Данная страница представляет собой описание REST API сервиса Steam
 tags:
-    - name: Echo
-      description: "Example echo operations."
+    - name: Game
+      description: "Получение и создание игр"
     - name: User
       description: "Example actions on user accounts."
     - name: Admin
@@ -27,14 +27,28 @@ tags:
     - name: Tag
       description: "This is a tag description."
 x-tagGroups:
-    - name: General
+    - name: Игры
       tags:
+          - Game
           - User
-          - Info
-          - Echo
     - name: Administration
       tags:
           - Admin
 paths:
+    "/games/{id}":
+        $ref: "./paths/games/{id}/get.yaml"
     "/users/{username}":
         $ref: "./paths/users/{username}/get.yaml"
+components:
+    securitySchemes:
+        main_auth:
+            description: "Example description text of the OAuth2 scheme."
+            type: oauth2
+            flows:
+                implicit:
+                    authorizationUrl: http://example.com/api/oauth/dialog
+                    scopes:
+                        "read:users": read user info
+                        "write:users": modify or remove users
+servers:
+    - url: https://store.steampowered.com

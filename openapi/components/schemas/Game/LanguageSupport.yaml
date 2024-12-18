@@ -1,0 +1,20 @@
+type: object
+required:
+    - name
+properties:
+    name:
+        type: string
+        description: Название языка
+        example: Русский
+    interface:
+        type: boolean
+        description: Поддержка интерфейса
+        example: true
+    voiceover:
+        type: boolean
+        description: Поддержка озвучки
+        example: false
+    subtitles:
+        type: boolean
+        description: Поддержка субтиров
+        example: false

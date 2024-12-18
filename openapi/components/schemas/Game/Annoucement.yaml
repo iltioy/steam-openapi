@@ -1,0 +1,25 @@
+type: object
+
+properties:
+    title:
+        type: string
+        description: Заголовок объявления
+        example: Плей-офф турнира Perfect World Shanghai Major 2024
+    caption:
+        type: string
+        description: Подпись объявления
+        example: Матчи начнутся 12 декабря в 9:00 по Москве
+    text:
+        type: string
+    game:
+        description: Игра, связанная с объявлением
+        $ref: Game.yaml
+    lieks:
+        description: Количество лайков на объявлении
+        type: integer
+        example: 11329
+    comments:
+        description: Комментарии к объявлению
+        type: array
+        items:
+            $ref: Comment.yaml

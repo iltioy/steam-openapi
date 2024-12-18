@@ -1,0 +1,112 @@
+type: object
+required:
+    - title
+    - description
+    - developer
+    - publisher
+    - tags
+    - publicationDate
+properties:
+    title:
+        description: Название игры
+        type: string
+        minLength: 4
+        maxLength: 32
+        pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
+        example: Counter-Strike 2
+    description:
+        description: Краткое описание игры
+        type: string
+        example: Более двух десятилетий Counter-Strike служит
+            примером первоклассной соревновательной игры,
+            путь развития которой определяют миллионы игроков со всего мира. Теперь пришло время
+            нового этапа — Counter-Strike 2.
+    fullDescription:
+        description: Полное описание игры
+        type: array
+        items:
+            type: object
+            properties:
+                title:
+                    type: string
+                    description: Название раздела описания
+                    example: Об этой игре
+                content:
+                    type: string
+                    description: Содержание раздела
+                    example:
+                        Более двух десятилетий Counter-Strike служит примером первоклассной
+                        соревновательной игры, путь развития которой определяют миллионы игроков со всего мира.
+                        Теперь пришло время нового этапа — Counter-Strike 2.Counter-Strike 2 — это бесплатное улучшение для CS:GO,
+                        которое знаменует собой крупнейший технологический скачок в истории серии.
+                        Оно разработано на движке Source 2 и модернизирует игру благодаря реалистичному и физически корректному рендерингу,
+                        организации сети по последнему слову технологий и улучшенным инструментам для мастерской сообщества.
+    developer:
+        description: Разработчик
+        type: string
+        example: Valve
+    publisher:
+        description: Издатель
+        type: string
+        example: Valve
+    price:
+        description: Цена игры
+    tags:
+        type: array
+        description: Популярные теги
+        items:
+            type: string
+        example: ["Шутер", "Экшен", "Тактика", "Шутер от первого лица"]
+    genre:
+        description: Жанры
+        type: array
+        items:
+            type: string
+    publicationDate:
+        description: Дата выхода
+        type: string
+        example: 21 авг. 2012 г.
+    media:
+        type: array
+        description: Ссылки на медиа
+        items:
+            $ref: ../Media.yaml
+    annoucements:
+        type: array
+        description: Объявения
+        items:
+            $ref: Annoucement.yaml
+    systemRequirements:
+        type: object
+        description: Системные требования
+        properties:
+            group:
+                type: string
+                example: SteamOS + Linux
+            OS:
+                type: string
+                example: Windows® 10
+            Processor:
+                type: string
+                example: 4-потоковый процессор — Intel® Core™ i5 750 или лучше
+            RAM:
+                type: string
+                example: 8 GB ОЗУ
+            GPU:
+                type: string
+                example: с 1 ГБ памяти или больше, совместимая с DirectX 11 и поддерживающая Shader Model 5.0
+            DiretX:
+                type: string
+                example: версии 11
+            DiskSpace:
+                type: string
+                example: 85 GB
+    supportedLanguages:
+        type: array
+        description: Поддерживаемые языки
+        $ref: LanguageSupport.yaml
+    reviews:
+        type: array
+        description: Ревью пользователей
+        items:
+            $ref: Review.yaml

@@ -1,0 +1,11 @@
+type: object
+properties:
+    type:
+        type: string
+        enum:
+            - image
+            - video
+        example: image
+    url:
+        type: string
+        example: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/ss_796601d9d67faf53486eeb26d0724347cea67ddc.600x338.jpg?t=1729703045

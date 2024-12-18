@@ -1,0 +1,47 @@
+type: object
+required:
+    - user
+    - isRecommended
+    - body
+    - updatedDate
+    - publicationDate
+properties:
+    user:
+        $ref: ../User.yaml
+    isRecommended:
+        default: Флаг, показывающий, рекомендует ли пользователь данный товар
+        type: boolean
+        example: true
+    body:
+        description: Содержание отзыва
+        type: boolean
+        example: CS2 – это игра, которая обещала быть революцией,
+            но стала своего рода эволюцией токсичности и читерства.
+            Если вы когда-нибудь хотели почувствовать себя героем постапокалиптической антиутопии,
+            где каждый сам за себя, добро пожаловать в CS2.
+    publicationDate:
+        description: Дата публикации
+        type: string
+        example: 1 окт. 2023 г. в 21:20
+    updatedDate:
+        description: Дата обновления
+        type: string
+        example: 28 окт. 2024 г. в 21:20
+    reactions:
+        type: object
+        description: Реакции на ревью
+        properties:
+            liked:
+                type: integer
+                example: 213
+            disliked:
+                type: integer
+                example: 10
+            funny:
+                type: integer
+                example: 14
+    comments:
+        type: array
+        description: Комментарии к ревью
+        items:
+            $ref: Comment.yaml

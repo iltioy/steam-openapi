@@ -1,0 +1,30 @@
+get:
+    tags:
+        - Game
+    summary: Получение игры по Id
+    description: Получение информации об игре по её id
+    operationId: getGameById
+    parameters:
+        - name: id
+          in: path
+          description: Id игры
+          required: true
+          style: form
+          explode: false
+          schema:
+              type: string
+    responses:
+        "200":
+            description: Успешное получение игры
+            content:
+                application/json:
+                    schema:
+                        type: array
+                        items:
+                            $ref: ../../../components/schemas/Game/Game.yaml
+        "400":
+            description: Invalid status value was provided in the request
+    security:
+        - main_auth:
+              - "read:users"
+              - "write:users"

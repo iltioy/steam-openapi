@@ -1,0 +1,20 @@
+type: object
+required:
+    - user
+    - text
+    - publicationDate
+properties:
+    user:
+        description: Пользователь, оставивший комментарий
+        $ref: ../User.yaml
+    text:
+        type: string
+        example: Team Spirit is going to win the Major
+    publicationDate:
+        description: Дата публикации комментария
+        type: string
+        example: 11 дек в 0:34
+    updatedDate:
+        description: Дата обновления комментария
+        type: string
+        example: 11 дек в 0:50

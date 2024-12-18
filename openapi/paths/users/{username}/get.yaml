@@ -6,7 +6,7 @@ get:
     operationId: getUserByUsername
     parameters:
         - name: username
-          in: query
+          in: path
           description: "Имя пользователя"
           required: true
           style: form
@@ -20,11 +20,13 @@ get:
                 application/json:
                     schema:
                         type: array
-
+                        items:
+                            $ref: "../../../components/schemas/User.yaml"
                 application/xml:
                     schema:
                         type: array
-
+                        items:
+                            $ref: "../../../components/schemas/User.yaml"
                 text/plain:
                     examples:
                         response:
