@@ -17,8 +17,3 @@ properties:
         type: integer
         description: Количество лайков
         example: 2
-    comments:
-        description: Комментарии к скриншоту
-        type: array
-        items:
-            type: string
