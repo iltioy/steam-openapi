@@ -139,6 +139,9 @@ paths:
         patch:
             $ref: paths/groups/{groupname}/discussions/patch.yaml
 
+    "/groups/{groupname}/discussions/{id}":
+        get:
+            $ref: paths/groups/{groupname}/discussions/{id}/get.yaml
     "/groups/{groupname}/participants":
         get:
             $ref: paths/groups/{groupname}/participants/get.yaml

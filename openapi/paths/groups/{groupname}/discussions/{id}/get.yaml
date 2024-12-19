@@ -1,0 +1,31 @@
+tags:
+    - Discussions
+summary: Получение обсуждения по id
+description: ""
+operationId: getGroupDiscussionsById
+parameters:
+    - name: groupname
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: id
+      in: path
+      description: Страница
+      required: true
+      schema:
+          type: integer
+responses:
+    "200":
+        description: Successful response example
+        content:
+            application/json:
+                schema:
+                    type: oject
+                    $ref: ../../../../../components/schemas/Group/Discusstion/Discussion.yaml
+    "404":
+        description: Обсуждение не найдено
+security: []
