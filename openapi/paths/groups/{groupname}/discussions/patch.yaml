@@ -1,0 +1,41 @@
+tags:
+    - Discussions
+summary: Обновление обсуждения
+description: "Обновление обсуждения в группе"
+operationId: updateDiscussion
+parameters:
+    - name: groupname
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    title:
+                        type: string
+                        example: +REP ВЗАИМНО
+                    text:
+                        type: string
+                        example: Выберите что то одно из этого списка и напишите в моём профиле, отвечу тем же!
+
+responses:
+    "201":
+        description: Обсуждение успешно обновлено
+        content:
+            application/json:
+                schema:
+                    $ref: ../../../../components/schemas/Group/Discusstion/Discussion.yaml
+
+    "400":
+        description: Обсуждение не обновлено
+    "403":
+        description: Недостаточно прав
+security:
+    - JWT: []

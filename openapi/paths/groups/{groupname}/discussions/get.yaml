@@ -1,5 +1,5 @@
 tags:
-    - Group
+    - Discussions
 summary: Получение обсуждений
 description: ""
 operationId: getGroupDiscussionsByName
