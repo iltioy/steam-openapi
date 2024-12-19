@@ -1,6 +1,10 @@
 type: object
 
 properties:
+    id:
+        description: Id предмета
+        type: integer
+        example: 1372763627327
     game:
         description: Игра
         $ref: ../Game/Game.yaml
