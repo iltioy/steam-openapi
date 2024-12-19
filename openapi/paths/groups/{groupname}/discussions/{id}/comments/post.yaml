@@ -1,6 +1,6 @@
 tags:
     - Discussions
-summary: Согдание комментария
+summary: Создание комментария
 description: "Создание комментария в обсуждении"
 operationId: createDiscussionComment
 parameters:
