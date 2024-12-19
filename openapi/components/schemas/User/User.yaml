@@ -48,8 +48,24 @@ properties:
         description: 3 последние запущенные игры
         items:
             $ref: Games/UserGame.yaml
+    groups:
+        type: array
+        description: Группы
+        items:
+            $ref: ../Group/Group.yaml
     reviews:
         type: array
         description: Ревью игр
         items:
             $ref: ../Game/Review.yaml
+    online:
+        type: object
+        properties:
+            lastSeen:
+                type: integer
+                description: Последнее время онлайн в секундах
+                example: 5341
+            isOnline:
+                type: boolean
+                description: Онлан или нет
+                example: true

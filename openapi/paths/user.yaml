@@ -26,9 +26,7 @@ post:
         "405":
             description: Invalid input
     security:
-        - main_auth:
-              - "read:users"
-              - "write:users"
+        - JWT: []
     requestBody:
         content:
             application/json:

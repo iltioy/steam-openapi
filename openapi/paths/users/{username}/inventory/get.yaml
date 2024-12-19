@@ -1,6 +1,6 @@
 get:
     tags:
-        - User
+        - Profile
     summary: Получение инвентаря
     description: ""
     operationId: getUserInventoryUsername
@@ -24,7 +24,4 @@ get:
                             $ref: ../../../../components/schemas/User/Games/Inventory.yaml
         "404":
             description: Пользователь не найден
-    security:
-        - main_auth:
-              - "read:users"
-              - "write:users"
+    security: []

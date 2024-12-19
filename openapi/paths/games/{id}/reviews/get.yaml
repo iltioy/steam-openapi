@@ -25,7 +25,4 @@ get:
 
         "404":
             description: Игра не найдена
-    security:
-        - main_auth:
-              - "read:users"
-              - "write:users"
+    security: []

@@ -1,0 +1,27 @@
+tags:
+    - Screenshots
+summary: Удаление скриншота
+description: ""
+operationId: deleteScreenshots
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    imageId:
+                        type: string
+                        description: Id изображения
+                        example: 12312
+responses:
+    "204":
+        description: Successful response example
+        content:
+            application/json:
+                schema:
+                    type: string
+                    example: Success!
+    "404":
+        description: Пользователь не найден
+security:
+    - JWT: []

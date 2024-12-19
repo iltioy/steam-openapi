@@ -1,0 +1,23 @@
+type: object
+properties:
+    title:
+        type: string
+        description: Имя группы
+        example: <3 Dipper
+    description:
+        type: string
+        description: Описание группы
+        example: О <3 Dipper
+    imageUrl:
+        type: string
+        description: Картинка группы
+        example: https://avatars.fastly.steamstatic.com/a3543b613af025d360a6b55879dc389afc1402dd_full.jpg
+    popularDiscussions:
+        type: array
+        description: Популярные обсуждения
+        items:
+            $ref: Discusstion/Discussion.yaml
+    numberOfParticipants:
+        type: integer
+        description: Число участников
+        example: 66942

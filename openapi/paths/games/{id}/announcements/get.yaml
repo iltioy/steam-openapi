@@ -24,7 +24,4 @@ get:
                             $ref: ../../../../components/schemas/Game/Announcement.yaml
         "404":
             description: Игра не найдена
-    security:
-        - main_auth:
-              - "read:users"
-              - "write:users"
+    security: []

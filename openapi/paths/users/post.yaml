@@ -1,0 +1,72 @@
+post:
+    tags:
+        - Profile
+    summary: Создание пользователя
+    description: ""
+    operationId: createUser
+    requestBody:
+        content:
+            application/json:
+                schema:
+                    type: object
+                    required:
+                        - username
+                        - password
+                    properties:
+                        username:
+                            description: Постоянное имя профиля пользователя
+                            type: string
+                            minLength: 4
+                            maxLength: 32
+                            pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
+                            example: mrcors
+                        password:
+                            description: Пароль
+                            type: string
+                            minLength: 6
+                            maxLength: 32
+                            pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
+                            example: password
+
+    responses:
+        "201":
+            description: Пользователь успешно создан
+            content:
+                application/json:
+                    schema:
+                        type: object
+                        required:
+                            - username
+                            - actucalName
+                        properties:
+                            username:
+                                description: Постоянное имя профиля пользователя, указываемое при регистрации
+                                type: string
+                                minLength: 4
+                                maxLength: 32
+                                pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
+                                example: mrcors
+                            actucalName:
+                                description: Изменяемое имя пользователя
+                                type: string
+                                pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
+                                example: one trick pony
+                            avatar:
+                                description: Аватар пользователя
+                                type: string
+                                example: https://avatars.fastly.steamstatic.com/a959c4faa087933e6825f88fa10c3625897cf0a2_full.jpg
+                            online:
+                                type: object
+                                properties:
+                                    lastSeen:
+                                        type: integer
+                                        description: Последнее время онлайн в секундах
+                                        example: 5341
+                                    isOnline:
+                                        type: boolean
+                                        description: Онлан или нет
+                                        example: true
+
+        "400":
+            description: Пользователь не создан
+    security: []

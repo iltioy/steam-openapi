@@ -1,0 +1,34 @@
+tags:
+    - Comments
+summary: Добавление комментария
+description: ""
+operationId: createUserComment
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    username:
+                        description: Постоянное имя профиля пользователя, указываемое при регистрации
+                        type: string
+                        minLength: 4
+                        maxLength: 32
+                        pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
+                        example: mrcors
+                    text:
+                        description: Текст комментария
+                        type: string
+                        example: Комментарий
+
+responses:
+    "201":
+        description: Комментарий успешно создан
+        content:
+            application/json:
+                schema:
+                    $ref: ../../../components/schemas/Comment.yaml
+    "400":
+        description: Комментарий не создан
+security:
+    - JWT: []

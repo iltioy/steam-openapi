@@ -1,0 +1,17 @@
+type: object
+properties:
+    author:
+        $ref: ../../User/User.yaml
+        description: Автор обсуждения
+    title:
+        type: string
+        description: Название обсуждения
+        example: +REP ВЗАИМНО
+    text:
+        type: string
+        description: Текст обсуждения
+        example: Выберите что то одно из этого списка и напишите в моём профиле, отвечу тем же!
+    publishedDate:
+        type: string
+        description: Дата публикации
+        example: 1 дек. 2020 г. в 22:40

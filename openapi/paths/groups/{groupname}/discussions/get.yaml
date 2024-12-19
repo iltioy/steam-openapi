@@ -1,13 +1,13 @@
 get:
     tags:
-        - Comments
-    summary: Получение комментариев профиля
+        - Group
+    summary: Получение обсуждений
     description: ""
-    operationId: getUserProfileCommentsByUsername
+    operationId: getGroupDiscussionsByName
     parameters:
-        - name: username
+        - name: groupname
           in: path
-          description: "Имя пользователя"
+          description: "Имя группы"
           required: true
           style: form
           explode: false
@@ -15,9 +15,10 @@ get:
               type: string
         - name: page
           in: query
+          description: Страница
           required: true
           schema:
-              type: string
+              type: integer
     responses:
         "200":
             description: Successful response example
@@ -26,7 +27,7 @@ get:
                     schema:
                         type: array
                         items:
-                            $ref: ../../../../components/schemas/Comment.yaml
+                            $ref: ../../../../components/schemas/Group/Discusstion/Discussion.yaml
         "404":
-            description: Пользователь не найден
+            description: Группа не найдена
     security: []

@@ -1,0 +1,25 @@
+get:
+    tags:
+        - Group
+    summary: Получение группы
+    description: ""
+    operationId: getGroupByName
+    parameters:
+        - name: groupname
+          in: path
+          description: "Имя группы"
+          required: true
+          style: form
+          explode: false
+          schema:
+              type: string
+    responses:
+        "200":
+            description: Successful response example
+            content:
+                application/json:
+                    schema:
+                        $ref: ../../../components/schemas/Group/Group.yaml
+        "404":
+            description: Группа не найдена
+    security: []

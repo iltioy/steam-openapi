@@ -1,0 +1,28 @@
+tags:
+    - Screenshots
+summary: Добавление скриншота
+description: ""
+operationId: addScreenshots
+requestBody:
+    content:
+        form-data:
+            schema:
+                type: object
+                properties:
+                    image:
+                        contentMediaType: image/png
+                        type: object
+
+responses:
+    "200":
+        description: Successful response example
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        $ref: ../../../components/schemas/Media.yaml
+    "404":
+        description: Пользователь не найден
+security:
+    - JWT: []

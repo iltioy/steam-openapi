@@ -1,0 +1,29 @@
+tags:
+    - Group
+summary: Удаление группы
+description: ""
+operationId: deleteGroup
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    groupId:
+                        type: string
+                        description: Id группы
+                        example: 12312
+responses:
+    "204":
+        description: Successful response example
+        content:
+            application/json:
+                schema:
+                    type: string
+                    example: Success!
+    "404":
+        description: Группа не найдена
+    "403":
+        description: Не правильный владелец группы
+security:
+    - JWT: []

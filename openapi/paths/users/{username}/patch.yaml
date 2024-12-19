@@ -1,0 +1,49 @@
+tags:
+    - Profile
+summary: Обновление пользователя
+description: ""
+operationId: updateUserByUsername
+parameters:
+    - name: username
+      in: path
+      description: "Имя пользователя"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    actualName:
+                        description: Изменяемое имя пользователя
+                        type: string
+                        pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
+                        example: one trick pony
+                    location:
+                        description: Страна и город пользователя
+                        type: string
+                        example: Atlanta, Georgia, United States
+                    summary:
+                        description: Описание профиля
+                        type: string
+                        example: ¿Qué horas son, mi corazón?
+                    avatar:
+                        description: Аватар пользователя
+                        type: string
+                        example: https://avatars.fastly.steamstatic.com/a959c4faa087933e6825f88fa10c3625897cf0a2_full.jpg
+
+responses:
+    "200":
+        description: Successful response example
+        content:
+            application/json:
+                schema:
+                    $ref: "../../../components/schemas/User/User.yaml"
+    "404":
+        description: Пользователь не найден
+security:
+    - JWT: []

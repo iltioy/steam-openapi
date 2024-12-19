@@ -18,49 +18,103 @@ info:
 tags:
     - name: Game
       description: "Получение и создание игр"
-    - name: User
-      description: "Example actions on user accounts."
-    - name: Admin
-      description: "Example operations reserved for administrators."
+    - name: Profile
+      description: "Получение информации о профиле пользователей"
+    - name: Group
+      description: "Получение информации о группах"
+    - name: Comments
+      description: "Получение информации и редактирование комментариев"
     - name: Info
       description: "Example operations for retrieving information."
     - name: Tag
       description: "This is a tag description."
 x-tagGroups:
-    - name: Игры
+    - name: Пользователи
       tags:
-          - Game
-          - User
-    - name: Administration
+          - Profile
+          - Comments
+          - Screenshots
+    - name: Группы
       tags:
-          - Admin
+          - Group
 paths:
+    # Games get routes
     "/games/{id}":
         $ref: "./paths/games/{id}/get.yaml"
+
     "/games/{id}/reviews":
         $ref: paths/games/{id}/reviews/get.yaml
+
     "/games/{id}/announcements":
         $ref: paths/games/{id}/announcements/get.yaml
+
     "/games/{id}/similar":
         $ref: paths/games/{id}/similar/get.yaml
+
+    # Users routes
     "/users/{username}":
-        $ref: "./paths/users/{username}/get.yaml"
+        get:
+            $ref: "./paths/users/{username}/get.yaml"
+        patch:
+            $ref: "./paths/users/{username}/patch.yaml"
+
+    "/users":
+        $ref: paths/users/post.yaml
+
     "/users/{username}/comments":
         $ref: "./paths/users/{username}/comments/get.yaml"
+
+    "/users/comments":
+        post:
+            $ref: paths/users/comments/post.yaml
+        patch:
+            $ref: "paths/users/comments/patch.yaml"
+        delete:
+            $ref: "paths/users/comments/delete.yaml"
+
     "/users/{username}/inventory":
         $ref: paths/users/{username}/inventory/get.yaml
+
     "/users/{username}/screenshots":
         $ref: paths/users/{username}/screenshots/get.yaml
+
+    "/users/screenshots":
+        post:
+            $ref: paths/users/screenshots/post.yaml
+        delete:
+            $ref: paths/users/screenshots/delete.yaml
+
+    # Groups get routes
+    "/groups/{groupname}":
+        $ref: paths/groups/{groupname}/get.yaml
+
+    "/groups/{groupname}/comments":
+        $ref: paths/groups/{groupname}/comments/get.yaml
+
+    "/groups/{groupname}/discussions":
+        $ref: paths/groups/{groupname}/discussions/get.yaml
+
+    "/groups/{groupname}/participants":
+        $ref: paths/groups/{groupname}/participants/get.yaml
+
+    "/groups/discussions/{id}/comments":
+        $ref: paths/groups/discussions/{id}/comments/get.yaml
+
+    "/groups":
+        post:
+            $ref: paths/groups/post.yaml
+        patch:
+            $ref: paths/groups/patch.yaml
+        delete:
+            $ref: paths/groups/delete.yaml
+
 components:
     securitySchemes:
-        main_auth:
-            description: "Example description text of the OAuth2 scheme."
-            type: oauth2
-            flows:
-                implicit:
-                    authorizationUrl: http://example.com/api/oauth/dialog
-                    scopes:
-                        "read:users": read user info
-                        "write:users": modify or remove users
+        JWT:
+            description: JWT Bearer авторизация
+            type: http
+            scheme: bearer
+            bearerFormat: JWT
+
 servers:
     - url: https://store.steampowered.com
