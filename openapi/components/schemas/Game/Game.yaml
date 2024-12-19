@@ -9,7 +9,7 @@ required:
     - publicationDate
 properties:
     id:
-        description: Id пользователя
+        description: Id игры
         type: integer
         example: 1372763627327
     title:
