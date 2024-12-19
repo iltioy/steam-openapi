@@ -1,5 +1,9 @@
 type: object
 properties:
+    id:
+        description: Id обсуждения
+        type: integer
+        example: 1372763627327
     author:
         $ref: ../../User/User.yaml
         description: Автор обсуждения

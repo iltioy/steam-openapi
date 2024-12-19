@@ -1,0 +1,51 @@
+tags:
+    - Discussions
+summary: Обновление комментария
+description: "Обновление комментария в обсуждении"
+operationId: updateDiscussionComment
+parameters:
+    - name: groupname
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: id
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: commentId
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    text:
+                        description: Текст комментария
+                        type: string
+                        example: Комментарий
+responses:
+    "201":
+        description: Комментарий успешно обновлён
+        content:
+            application/json:
+                schema:
+                    $ref: ../../../../../../../components/schemas/Comment.yaml
+    "404":
+        description: Комментарий не найден
+security:
+    - JWT: []

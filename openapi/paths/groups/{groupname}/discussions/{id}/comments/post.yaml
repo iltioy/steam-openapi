@@ -1,10 +1,18 @@
 tags:
-    - Group Comments
+    - Discussions
 summary: Согдание комментария
-description: "Создание комментария в группе"
-operationId: createGroupComment
+description: "Создание комментария в обсуждении"
+operationId: createDiscussionComment
 parameters:
     - name: groupname
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: id
       in: path
       description: "Имя группы"
       required: true
@@ -28,8 +36,8 @@ responses:
         content:
             application/json:
                 schema:
-                    $ref: ../../../../components/schemas/Comment.yaml
+                    $ref: ../../../../../../components/schemas/Comment.yaml
     "404":
-        description: Группа не найдена
+        description: Обсуждение не найдено
 security:
     - JWT: []

@@ -19,9 +19,11 @@ responses:
         content:
             application/json:
                 schema:
-                    type: array
-                    items:
-                        $ref: ../../../components/schemas/Media.yaml
+                    type: object
+                    properties:
+                        url:
+                            type: string
+
     "404":
         description: Пользователь не найден
 security:

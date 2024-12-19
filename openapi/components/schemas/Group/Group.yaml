@@ -1,5 +1,9 @@
 type: object
 properties:
+    id:
+        description: Id группы
+        type: integer
+        example: 1372763627327
     title:
         type: string
         description: Имя группы

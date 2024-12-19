@@ -41,30 +41,24 @@ properties:
         example: https://avatars.fastly.steamstatic.com/a959c4faa087933e6825f88fa10c3625897cf0a2_full.jpg
     friends:
         type: array
-        description: Друзья пользователя
-        items:
-            allOf:
-                - $ref: ./User.yaml
+        description: Друзья пользователя по id
+        example: [1, 2, 3, 4]
     games:
         type: array
-        description: Добавленные игры
-        items:
-            $ref: Games/UserGame.yaml
+        description: Добавленные игры по id
+        example: [1, 2, 3, 4]
     recentActivity:
         type: array
-        description: 3 последние запущенные игры
-        items:
-            $ref: Games/UserGame.yaml
+        description: 3 последние запущенные игры по id
+        example: [1, 2, 3, 4]
     groups:
         type: array
-        description: Группы
-        items:
-            $ref: ../Group/Group.yaml
+        description: Массив id групп пользователя
+        example: [1, 2, 3, 4]
     reviews:
         type: array
-        description: Ревью игр
-        items:
-            $ref: ../Game/Review.yaml
+        description: Ревью игр по id
+        example: [1, 2, 3, 4]
     online:
         type: object
         properties:

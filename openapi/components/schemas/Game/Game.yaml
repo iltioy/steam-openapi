@@ -8,6 +8,10 @@ required:
     - tags
     - publicationDate
 properties:
+    id:
+        description: Id пользователя
+        type: integer
+        example: 1372763627327
     title:
         description: Название игры
         type: string
@@ -35,8 +39,7 @@ properties:
                 content:
                     type: string
                     description: Содержание раздела
-                    example:
-                        Более двух десятилетий Counter-Strike служит примером первоклассной
+                    example: Более двух десятилетий Counter-Strike служит примером первоклассной
                         соревновательной игры, путь развития которой определяют миллионы игроков со всего мира.
                         Теперь пришло время нового этапа — Counter-Strike 2.Counter-Strike 2 — это бесплатное улучшение для CS:GO,
                         которое знаменует собой крупнейший технологический скачок в истории серии.

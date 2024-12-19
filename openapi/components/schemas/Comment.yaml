@@ -4,6 +4,10 @@ required:
     - text
     - publicationDate
 properties:
+    id:
+        description: Id комментария
+        type: integer
+        example: 1372763627327
     user:
         description: Пользователь, оставивший комментарий
         $ref: ./User/User.yaml

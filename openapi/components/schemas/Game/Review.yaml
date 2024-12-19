@@ -6,6 +6,10 @@ required:
     - updatedDate
     - publicationDate
 properties:
+    id:
+        description: Id ревью
+        type: integer
+        example: 1372763627327
     user:
         $ref: ../User/User.yaml
     isRecommended:

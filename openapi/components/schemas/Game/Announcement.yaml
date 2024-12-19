@@ -1,6 +1,10 @@
 type: object
 
 properties:
+    id:
+        description: Id объявления
+        type: integer
+        example: 1372763627327
     title:
         type: string
         description: Заголовок объявления
@@ -14,7 +18,7 @@ properties:
     game:
         description: Игра, связанная с объявлением
         $ref: Game.yaml
-    lieks:
+    likes:
         description: Количество лайков на объявлении
         type: integer
         example: 11329

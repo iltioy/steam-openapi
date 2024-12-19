@@ -3,6 +3,10 @@ required:
     - name
     - imageUrl
 properties:
+    id:
+        description: Id ачивки
+        type: integer
+        example: 1372763627327
     name:
         type: string
         description: Название ачивки

@@ -149,6 +149,14 @@ paths:
     "/groups/{groupname}discussions/{id}/comments":
         get:
             $ref: paths/groups/{groupname}/discussions/{id}/comments/get.yaml
+        post:
+            $ref: paths/groups/{groupname}/discussions/{id}/comments/post.yaml
+
+    "/groups/{groupname}discussions/{id}/comments/{commentId}":
+        patch:
+            $ref: paths/groups/{groupname}/discussions/{id}/comments/{commentId}/patch.yaml
+        delete:
+            $ref: paths/groups/{groupname}/discussions/{id}/comments/{commentId}/delete.yaml
 
     "/groups":
         post:
