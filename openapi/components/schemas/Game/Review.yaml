@@ -44,8 +44,3 @@ properties:
             funny:
                 type: integer
                 example: 14
-    comments:
-        type: array
-        description: Комментарии к ревью
-        items:
-            $ref: ../Comment.yaml
