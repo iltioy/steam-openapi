@@ -1,7 +1,7 @@
 tags:
     - Screenshots
 summary: Добавление скриншота
-description: ""
+description: "Добавление скриншота в коллекцию пользователя"
 operationId: addScreenshots
 requestBody:
     content:
@@ -14,8 +14,8 @@ requestBody:
                         type: object
 
 responses:
-    "200":
-        description: Successful response example
+    "201":
+        description: Скриншот успешно добавлен
         content:
             application/json:
                 schema:

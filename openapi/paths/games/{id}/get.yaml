@@ -1,25 +1,24 @@
-get:
-    tags:
-        - Game
-    summary: Получение игры
-    description: Получение информации об игре
-    operationId: getGameById
-    parameters:
-        - name: id
-          in: path
-          description: Id игры
-          required: true
-          style: form
-          explode: false
-          schema:
-              type: string
-    responses:
-        "200":
-            description: Успешное получение игры
-            content:
-                application/json:
-                    schema:
-                        $ref: ../../../components/schemas/Game/Game.yaml
-        "404":
-            description: Игра не найдена
-    security: []
+tags:
+    - Game
+summary: Получение игры
+description: Получение информации об игре
+operationId: getGameById
+parameters:
+    - name: id
+      in: path
+      description: Id игры
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+responses:
+    "200":
+        description: Успешное получение игры
+        content:
+            application/json:
+                schema:
+                    $ref: ../../../components/schemas/Game/Game.yaml
+    "404":
+        description: Игра не найдена
+security: []

@@ -1,27 +1,26 @@
-get:
-    tags:
-        - Game
-    summary: Получение похожих
-    description: Получение списка похожих игр
-    operationId: getSimilarGamesById
-    parameters:
-        - name: id
-          in: path
-          description: Id игры
-          required: true
-          style: form
-          explode: false
-          schema:
-              type: string
-    responses:
-        "200":
-            description: Успешное получение игры
-            content:
-                application/json:
-                    schema:
-                        type: array
-                        items:
-                            $ref: ../../../../components/schemas/Game/Game.yaml
-        "404":
-            description: Игра не найдена
-    security: []
+tags:
+    - Game
+summary: Получение похожих
+description: Получение списка похожих игр
+operationId: getSimilarGamesById
+parameters:
+    - name: id
+      in: path
+      description: Id игры
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+responses:
+    "200":
+        description: Успешное получение игры
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        $ref: ../../../../components/schemas/Game/Game.yaml
+    "404":
+        description: Игра не найдена
+security: []

@@ -1,34 +1,33 @@
-get:
-    tags:
-        - Group
-    summary: Получение комментариев обсуждения
-    description: ""
-    operationId: getDiscussionCommentsById
-    parameters:
-        - name: id
-          in: path
-          description: "Имя группы"
-          required: true
-          style: form
-          explode: false
-          schema:
-              type: string
-        - name: page
-          in: query
-          description: Страница
-          required: true
-          schema:
-              type: integer
-    responses:
-        "200":
-            description: Successful response example
-            content:
-                application/json:
-                    schema:
-                        type: array
-                        items:
-                            $ref: ../../../../../components/schemas/Comment.yaml
-        "404":
-            description: Обсуждение не найдено
-    security:
-        - JWT: []
+tags:
+    - Group
+summary: Получение комментариев обсуждения
+description: ""
+operationId: getDiscussionCommentsById
+parameters:
+    - name: id
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: page
+      in: query
+      description: Страница
+      required: true
+      schema:
+          type: integer
+responses:
+    "200":
+        description: Successful response example
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        $ref: ../../../../../components/schemas/Comment.yaml
+    "404":
+        description: Обсуждение не найдено
+security:
+    - JWT: []

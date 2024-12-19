@@ -4,6 +4,7 @@ required:
     - description
     - developer
     - publisher
+    - price
     - tags
     - publicationDate
 properties:

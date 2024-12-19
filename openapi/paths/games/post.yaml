@@ -1,0 +1,26 @@
+tags:
+    - Game Admin
+summary: Создание игры
+description: "Создание игры, доступно только пользователям с ролью 'админ'"
+operationId: createGame
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                $ref: ../../components/schemas/Game/Game.yaml
+
+responses:
+    "201":
+        description: Игра успешно создана
+        content:
+            application/json:
+                schema:
+                    $ref: ../../components/schemas/Game/Game.yaml
+
+    "400":
+        description: Игра не создана
+    "403":
+        description: Недостаточно прав
+security:
+    - JWT: []

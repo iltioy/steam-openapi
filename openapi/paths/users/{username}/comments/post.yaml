@@ -1,21 +1,25 @@
 tags:
     - Comments
 summary: Добавление комментария
-description: ""
+description: "Довабление комментариев в профиль пользователя с username"
 operationId: createUserComment
+parameters:
+    - name: username
+      in: path
+      description: "Имя пользователя"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
 requestBody:
     content:
         application/json:
             schema:
                 type: object
+                required:
+                    - text
                 properties:
-                    username:
-                        description: Постоянное имя профиля пользователя, указываемое при регистрации
-                        type: string
-                        minLength: 4
-                        maxLength: 32
-                        pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
-                        example: mrcors
                     text:
                         description: Текст комментария
                         type: string
@@ -27,7 +31,7 @@ responses:
         content:
             application/json:
                 schema:
-                    $ref: ../../../components/schemas/Comment.yaml
+                    $ref: ../../../../components/schemas/Comment.yaml
     "400":
         description: Комментарий не создан
 security:

@@ -1,7 +1,7 @@
 tags:
     - Profile
 summary: Обновление пользователя
-description: ""
+description: "Обновление основной инофрмации профиля пользователя"
 operationId: updateUserByUsername
 parameters:
     - name: username
@@ -38,12 +38,17 @@ requestBody:
 
 responses:
     "200":
-        description: Successful response example
+        description: Успешное обновление пользователя
         content:
             application/json:
                 schema:
                     $ref: "../../../components/schemas/User/User.yaml"
+    "400":
+        description: Ошибка при обновлении
+    "403":
+        description: Недостаточно прав
     "404":
         description: Пользователь не найден
+
 security:
     - JWT: []

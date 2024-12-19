@@ -10,6 +10,13 @@ properties:
         maxLength: 32
         pattern: "/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/"
         example: mrcors
+    role:
+        description: Роль пользователя
+        type: string
+        enum:
+            - user
+            - admin
+            - moderator
     actucalName:
         description: Изменяемое имя пользователя
         type: string

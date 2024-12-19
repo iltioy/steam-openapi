@@ -1,0 +1,45 @@
+tags:
+    - Game Reviews
+summary: Добавить ревью
+description: Создание обзора на игру
+operationId: createGameReview
+parameters:
+    - name: id
+      in: path
+      description: Id игры
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    isRecommended:
+                        default: Флаг, показывающий, рекомендует ли пользователь данный товар
+                        type: boolean
+                        example: true
+                    body:
+                        description: Содержание отзыва
+                        type: boolean
+                        example:
+                            CS2 – это игра, которая обещала быть революцией,
+                            но стала своего рода эволюцией токсичности и читерства.
+                            Если вы когда-нибудь хотели почувствовать себя героем постапокалиптической антиутопии,
+                            где каждый сам за себя, добро пожаловать в CS2.
+responses:
+    "201":
+        description: Успешное создание ревью
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        $ref: ../../../../components/schemas/Game/Review.yaml
+    "404":
+        description: Игра не найдена
+security:
+    - JWT: []

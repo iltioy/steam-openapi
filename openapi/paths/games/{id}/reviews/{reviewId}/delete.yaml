@@ -1,0 +1,36 @@
+tags:
+    - Game Reviews
+summary: Удаление ревью
+description: "Удаление ревью по его id"
+operationId: deleteGameRevies
+parameters:
+    - name: reviewId
+      in: path
+      description: "Id ревью"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: id
+      in: path
+      description: "Id игры"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+responses:
+    "204":
+        description: Успешное удаление ревью
+        content:
+            application/json:
+                schema:
+                    type: string
+                    example: Success!
+    "404":
+        description: Ревью не найдено
+    "403":
+        description: Недостаточно прав
+security:
+    - JWT: []

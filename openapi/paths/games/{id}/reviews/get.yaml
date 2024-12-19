@@ -1,28 +1,27 @@
-get:
-    tags:
-        - Game
-    summary: Получение ревью игры
-    description: Получение ревью игры
-    operationId: getGameReviewsById
-    parameters:
-        - name: id
-          in: path
-          description: Id игры
-          required: true
-          style: form
-          explode: false
-          schema:
-              type: string
-    responses:
-        "200":
-            description: Успешное получение ревью игры
-            content:
-                application/json:
-                    schema:
-                        type: array
-                        items:
-                            $ref: ../../../../components/schemas/Game/Review.yaml
+tags:
+    - Game Reviews
+summary: Получение ревью игры
+description: Получение ревью игры
+operationId: getGameReviewsById
+parameters:
+    - name: id
+      in: path
+      description: Id игры
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+responses:
+    "200":
+        description: Успешное получение ревью игры
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        $ref: ../../../../components/schemas/Game/Review.yaml
 
-        "404":
-            description: Игра не найдена
-    security: []
+    "404":
+        description: Игра не найдена
+security: []

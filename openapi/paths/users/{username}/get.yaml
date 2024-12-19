@@ -1,7 +1,7 @@
 tags:
     - Profile
 summary: Получение по username
-description: ""
+description: "Получение основной информации о профиле пользователя"
 operationId: getUserByUsername
 parameters:
     - name: username
@@ -14,7 +14,7 @@ parameters:
           type: string
 responses:
     "200":
-        description: Successful response example
+        description: Успешное получение пользователя
         content:
             application/json:
                 schema:

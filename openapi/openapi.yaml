@@ -37,19 +37,46 @@ x-tagGroups:
     - name: Группы
       tags:
           - Group
+          - Group Comments
+          - Discussions
+    - name: игры
+      tags:
+          - Game
+          - Game Reviews
+          - Game Admin
 paths:
-    # Games get routes
+    # Games routes
+    "/game":
+        post:
+            $ref: "./paths/games/post.yaml"
+
     "/games/{id}":
-        $ref: "./paths/games/{id}/get.yaml"
+        get:
+            $ref: "./paths/games/{id}/get.yaml"
+        patch:
+            $ref: "./paths/games/{id}/patch.yaml"
+        delete:
+            $ref: "./paths/games/{id}/delete.yaml"
 
     "/games/{id}/reviews":
-        $ref: paths/games/{id}/reviews/get.yaml
+        get:
+            $ref: paths/games/{id}/reviews/get.yaml
+        post:
+            $ref: paths/games/{id}/reviews/post.yaml
+
+    "/games/{id}/reviews/{reviewId}":
+        patch:
+            $ref: paths/games/{id}/reviews/{reviewId}/patch.yaml
+        delete:
+            $ref: paths/games/{id}/reviews/{reviewId}/delete.yaml
 
     "/games/{id}/announcements":
-        $ref: paths/games/{id}/announcements/get.yaml
+        get:
+            $ref: paths/games/{id}/announcements/get.yaml
 
     "/games/{id}/similar":
-        $ref: paths/games/{id}/similar/get.yaml
+        get:
+            $ref: paths/games/{id}/similar/get.yaml
 
     # Users routes
     "/users/{username}":
@@ -62,43 +89,61 @@ paths:
         $ref: paths/users/post.yaml
 
     "/users/{username}/comments":
-        $ref: "./paths/users/{username}/comments/get.yaml"
-
-    "/users/comments":
+        get:
+            $ref: "./paths/users/{username}/comments/get.yaml"
         post:
-            $ref: paths/users/comments/post.yaml
+            $ref: "./paths/users/{username}/comments/post.yaml"
+
+    "/users/{username}/comments/{id}":
         patch:
-            $ref: "paths/users/comments/patch.yaml"
+            $ref: "./paths/users/{username}/comments/{id}/patch.yaml"
         delete:
-            $ref: "paths/users/comments/delete.yaml"
+            $ref: "./paths/users/{username}/comments/{id}/delete.yaml"
 
     "/users/{username}/inventory":
-        $ref: paths/users/{username}/inventory/get.yaml
+        get:
+            $ref: paths/users/{username}/inventory/get.yaml
 
     "/users/{username}/screenshots":
-        $ref: paths/users/{username}/screenshots/get.yaml
+        get:
+            $ref: paths/users/{username}/screenshots/get.yaml
 
     "/users/screenshots":
         post:
             $ref: paths/users/screenshots/post.yaml
+
+    "/users/screenshots/{id}":
         delete:
-            $ref: paths/users/screenshots/delete.yaml
+            $ref: paths/users/screenshots/{id}/delete.yaml
 
     # Groups get routes
     "/groups/{groupname}":
-        $ref: paths/groups/{groupname}/get.yaml
+        get:
+            $ref: paths/groups/{groupname}/get.yaml
 
     "/groups/{groupname}/comments":
-        $ref: paths/groups/{groupname}/comments/get.yaml
+        get:
+            $ref: paths/groups/{groupname}/comments/get.yaml
+        post:
+            $ref: paths/groups/{groupname}/comments/post.yaml
+
+    "/groups/{groupname}/comments/{id}":
+        patch:
+            $ref: paths/groups/{groupname}/comments/{id}/patch.yaml
+        delete:
+            $ref: paths/groups/{groupname}/comments/{id}/delete.yaml
 
     "/groups/{groupname}/discussions":
-        $ref: paths/groups/{groupname}/discussions/get.yaml
+        get:
+            $ref: paths/groups/{groupname}/discussions/get.yaml
 
     "/groups/{groupname}/participants":
-        $ref: paths/groups/{groupname}/participants/get.yaml
+        get:
+            $ref: paths/groups/{groupname}/participants/get.yaml
 
     "/groups/discussions/{id}/comments":
-        $ref: paths/groups/discussions/{id}/comments/get.yaml
+        get:
+            $ref: paths/groups/discussions/{id}/comments/get.yaml
 
     "/groups":
         post:

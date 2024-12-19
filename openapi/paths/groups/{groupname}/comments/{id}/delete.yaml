@@ -1,0 +1,36 @@
+tags:
+    - Group Comments
+summary: Удаление комментария
+description: "Удаление комментария по его id"
+operationId: deleteGroupComment
+parameters:
+    - name: groupname
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: id
+      in: path
+      description: "Id комметария"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+responses:
+    "204":
+        description: Успешное удаление комментария
+        content:
+            application/json:
+                schema:
+                    type: string
+                    example: Success!
+    "404":
+        description: Комментарий не найден
+    "403":
+        description: Недостаточно прав
+security:
+    - JWT: []

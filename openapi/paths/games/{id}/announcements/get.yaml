@@ -1,27 +1,26 @@
-get:
-    tags:
-        - Game
-    summary: Получение объявлений игры
-    description: Получение объявлений игры
-    operationId: getGameAnnouncementsById
-    parameters:
-        - name: id
-          in: path
-          description: Id игры
-          required: true
-          style: form
-          explode: false
-          schema:
-              type: string
-    responses:
-        "200":
-            description: Успешное получение объявлений
-            content:
-                application/json:
-                    schema:
-                        type: array
-                        items:
-                            $ref: ../../../../components/schemas/Game/Announcement.yaml
-        "404":
-            description: Игра не найдена
-    security: []
+tags:
+    - Game
+summary: Получение объявлений игры
+description: Получение объявлений игры
+operationId: getGameAnnouncementsById
+parameters:
+    - name: id
+      in: path
+      description: Id игры
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+responses:
+    "200":
+        description: Успешное получение объявлений
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        $ref: ../../../../components/schemas/Game/Announcement.yaml
+    "404":
+        description: Игра не найдена
+security: []

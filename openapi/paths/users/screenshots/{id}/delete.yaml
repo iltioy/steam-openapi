@@ -1,21 +1,20 @@
 tags:
     - Screenshots
 summary: Удаление скриншота
-description: ""
+description: "Удаление скриншота из коллекции пользователя"
 operationId: deleteScreenshots
-requestBody:
-    content:
-        application/json:
-            schema:
-                type: object
-                properties:
-                    imageId:
-                        type: string
-                        description: Id изображения
-                        example: 12312
+parameters:
+    - name: id
+      in: path
+      description: "Id комметария"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
 responses:
     "204":
-        description: Successful response example
+        description: Успешное удаление скриншота
         content:
             application/json:
                 schema:

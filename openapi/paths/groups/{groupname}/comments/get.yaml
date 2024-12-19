@@ -1,33 +1,32 @@
-get:
-    tags:
-        - Group
-    summary: Получение комментариев
-    description: ""
-    operationId: getGroupCommentsByName
-    parameters:
-        - name: groupname
-          in: path
-          description: "Имя группы"
-          required: true
-          style: form
-          explode: false
-          schema:
-              type: string
-        - name: page
-          in: query
-          description: Страница
-          required: true
-          schema:
-              type: integer
-    responses:
-        "200":
-            description: Successful response example
-            content:
-                application/json:
-                    schema:
-                        type: array
-                        items:
-                            $ref: ../../../../components/schemas/Comment.yaml
-        "404":
-            description: Группа не найдена
-    security: []
+tags:
+    - Group Comments
+summary: Получение комментариев
+description: "Получение комментариев группы по её названию и странице"
+operationId: getGroupCommentsByName
+parameters:
+    - name: groupname
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: page
+      in: query
+      description: Страница
+      required: true
+      schema:
+          type: integer
+responses:
+    "200":
+        description: Успешное получение комментариев
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        $ref: ../../../../components/schemas/Comment.yaml
+    "404":
+        description: Группа не найдена
+security: []

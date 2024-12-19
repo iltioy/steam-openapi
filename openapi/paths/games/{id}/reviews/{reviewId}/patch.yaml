@@ -1,0 +1,54 @@
+tags:
+    - Game Reviews
+summary: Обновление ревью
+description: "Обновление ревью по его id"
+operationId: updateGameReview
+parameters:
+    - name: reviewId
+      in: path
+      description: "Id ревью"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: id
+      in: path
+      description: "Id игры"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    isRecommended:
+                        default: Флаг, показывающий, рекомендует ли пользователь данный товар
+                        type: boolean
+                        example: true
+                    body:
+                        description: Содержание отзыва
+                        type: boolean
+                        example:
+                            CS2 – это игра, которая обещала быть революцией,
+                            но стала своего рода эволюцией токсичности и читерства.
+                            Если вы когда-нибудь хотели почувствовать себя героем постапокалиптической антиутопии,
+                            где каждый сам за себя, добро пожаловать в CS2.
+
+responses:
+    "200":
+        description: Ревью успешно обновлено
+        content:
+            application/json:
+                schema:
+                    $ref: ../../../../../components/schemas/Game/Review.yaml
+    "400":
+        description: Комментарий не обновлён
+    "403":
+        description: Недостаточно прав
+security:
+    - JWT: []

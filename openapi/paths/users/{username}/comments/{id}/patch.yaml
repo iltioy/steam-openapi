@@ -1,0 +1,44 @@
+tags:
+    - Comments
+summary: Обновление комментария
+description: "Обновление комментария по его id"
+operationId: updateUserComment
+parameters:
+    - name: username
+      in: path
+      description: "Имя пользователя"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+    - name: id
+      in: path
+      description: "Id комметария"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    text:
+                        description: Текст комментария
+                        type: string
+                        example: Комментарий
+
+responses:
+    "200":
+        description: Комментарий успешно обновлён
+        content:
+            application/json:
+                schema:
+                    $ref: ../../../../../components/schemas/Comment.yaml
+    "400":
+        description: Комментарий не обновлён
+security:
+    - JWT: []

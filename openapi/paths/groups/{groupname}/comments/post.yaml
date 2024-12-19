@@ -1,0 +1,37 @@
+tags:
+    - Group Comments
+summary: Согдание комментария
+description: "Создание комментария в группе"
+operationId: createGroupComment
+parameters:
+    - name: groupname
+      in: path
+      description: "Имя группы"
+      required: true
+      style: form
+      explode: false
+      schema:
+          type: string
+requestBody:
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    text:
+                        description: Текст комментария
+                        type: string
+                        example: Комментарий
+responses:
+    "201":
+        description: Комментарий успешно создан
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        $ref: ../../../../components/schemas/Comment.yaml
+    "404":
+        description: Группа не найдена
+security:
+    - JWT: []
